@@ -1,4 +1,4 @@
-# Desciption
+# Description
 
 Display the most recent videos added to a envira gallery or album via shortcodes
 
