@@ -58,8 +58,7 @@ function elvs_display_latest( $atts ) {
     $youtube_id = elvs_get_yt_id($data['link']);
     echo get_gallery_item_output($data, $youtube_id);
   }
-  echo '<div id="lightbox-overlay"><span id="lightbox-close">Close</span><iframe id="lightbox-iframe" src="" data-origwidth="560" data-origheight="315" frameborder="0" allowfullscreen></iframe></div>';
-  echo '</div>';
+  echo get_lightbox_html();
 
   return ob_get_clean();
 
@@ -112,8 +111,7 @@ function elvs_display_latest_from_album( $atts ) {
       $youtube_id = elvs_get_yt_id($data['link']);
       echo get_gallery_item_output($data, $youtube_id);
     }
-    echo '<div id="lightbox-overlay"><span id="lightbox-close">Close</span><iframe id="lightbox-iframe" src="" data-origwidth="560" data-origheight="315" frameborder="0" allowfullscreen></iframe></div>';
-    echo '</div>';
+    echo get_lightbox_html();
   }
   return ob_get_clean();
 
@@ -133,6 +131,12 @@ function get_gallery_item_output($data, $youtube_id) {
   $html .= '<img class="elvs__image" src="'. $data['src'] .'" width="80" height="60" />';
   $html .= '<span class="elvs__play-icon">Play</span>';
   $html .= '</a>';
+  $html .= '</div>';
+  return $html;
+}
+
+function get_lightbox_html() {
+  $html = '<div id="lightbox-overlay"><span id="lightbox-close">Close</span><iframe id="lightbox-iframe" src="" frameborder="0" allowfullscreen></iframe></div>';
   $html .= '</div>';
   return $html;
 }
