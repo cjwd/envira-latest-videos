@@ -28,7 +28,7 @@ function elvs_enqueue_scripts() {
 }
 
 
-add_shortcode( 'elvs-gallery', 'ngc_display_latest' );
+add_shortcode( 'elvs-gallery', 'elvs_display_latest' );
 function elvs_display_latest( $atts ) {
   $atts = array_change_key_case((array)$atts, CASE_LOWER);
   $atts = shortcode_atts(
