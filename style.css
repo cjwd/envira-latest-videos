@@ -63,13 +63,13 @@
 }
 
 #lightbox-iframe {
-  max-height: 90%;
+  width: 640px !important;
+  height: 400px !important;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  max-width: 90%;
-  background: transparent url("images/loading.gif") 50% 50% no-repeat;
+  background: transparent url('images/loading.gif') 50% 50% no-repeat;
   text-indent: -99999px;
 }
 
