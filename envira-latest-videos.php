@@ -80,14 +80,14 @@ function elvs_display_latest_from_album( $atts ) {
 
   extract($atts);
 
-  $album_data = get_post_meta((int)$album_id, '_eg_gallery_data', true);
+  $album_data = get_post_meta((int)$album_id, '_eg_album_data', true);
 
   if ( empty($album_id) || empty($album_data) ) {
     return 'You need to add the album_id attribute with a valid gallery ID';
   }
 
-  $_eg_album_data = get_post_meta((int)$album_id, '_eg_album_data', true);
-  $gallery_IDs = $_eg_album_data['galleryIDs'];
+
+  $gallery_IDs = $album_data['galleryIDs'];
   $posts_per_page = (int)$num_posts * count($gallery_IDs);
 
   $galleries = new WP_Query([
