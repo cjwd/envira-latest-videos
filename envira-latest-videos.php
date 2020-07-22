@@ -55,10 +55,10 @@ function elvs_display_latest( $atts ) {
   $i = 0;
   foreach($gallery_data['gallery'] as $id => $data) {
     if (++$i == (int)$num_posts + 1) break;
-    $youtube_id = ngcv_get_yt_id($data['link']);
+    $youtube_id = elvs_get_yt_id($data['link']);
     echo get_gallery_item_output($data, $youtube_id);
   }
-  echo '<div id="lightbox-overlay"><iframe id="lightbox-iframe" src="" frameborder="0" allowfullscreen></iframe></div>';
+  echo '<div id="lightbox-overlay"><span id="lightbox-close">Close</span><iframe id="lightbox-iframe" src="" data-origwidth="560" data-origheight="315" frameborder="0" allowfullscreen></iframe></div>';
   echo '</div>';
 
   return ob_get_clean();
@@ -109,10 +109,10 @@ function elvs_display_latest_from_album( $atts ) {
       $_eg_has_gallery = get_post_meta(get_the_ID(), '_eg_has_gallery', true);
       $gallery_data = get_post_meta($_eg_has_gallery[0], '_eg_gallery_data', true);
       $data = $gallery_data['gallery'][get_the_ID()];
-      $youtube_id = ngcv_get_yt_id($data['link']);
+      $youtube_id = elvs_get_yt_id($data['link']);
       echo get_gallery_item_output($data, $youtube_id);
     }
-    echo '<div id="lightbox-overlay"><span id="lightbox-close">Close</span><iframe id="lightbox-iframe" src="" width="560" height="315" frameborder="0" allowfullscreen></iframe></div>';
+    echo '<div id="lightbox-overlay"><span id="lightbox-close">Close</span><iframe id="lightbox-iframe" src="" data-origwidth="560" data-origheight="315" frameborder="0" allowfullscreen></iframe></div>';
     echo '</div>';
   }
   return ob_get_clean();
@@ -144,7 +144,7 @@ function change_albums_output_image_count_label($label, $count) {
 }
 
 /** Helper Functions **/
-function ngcv_get_yt_id($ytlink) {
+function elvs_get_yt_id($ytlink) {
   // Assuming youtube IDs are always 11 characters
   $ytid = substr($ytlink, -11);
   return $ytid;
