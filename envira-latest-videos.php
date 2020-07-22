@@ -45,7 +45,7 @@ function elvs_display_latest( $atts ) {
 
   $gallery_data = get_post_meta((int)$gallery_id, '_eg_gallery_data', true);
 
-  if ( empty( $gallery_id || empty($gallery_data) ) ) {
+  if ( empty($gallery_id) || empty($gallery_data) ) {
     return 'You need to add the gallery_id attribute with a valid gallery ID';
   }
 
@@ -82,7 +82,7 @@ function elvs_display_latest_from_album( $atts ) {
 
   $album_data = get_post_meta((int)$album_id, '_eg_gallery_data', true);
 
-  if ( empty( $album_id || empty($album_data) ) ) {
+  if ( empty($album_id) || empty($album_data) ) {
     return 'You need to add the album_id attribute with a valid gallery ID';
   }
 
