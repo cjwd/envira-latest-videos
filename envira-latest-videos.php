@@ -51,7 +51,7 @@ function elvs_display_latest( $atts ) {
 
   // Output the gallery
   ob_start();
-  echo '<div class="ngc-envira-gallery">';
+  echo '<div class="elvs">';
   $i = 0;
   foreach($gallery_data['gallery'] as $id => $data) {
     if (++$i == (int)$num_posts + 1) break;
