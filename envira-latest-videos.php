@@ -87,7 +87,7 @@ function elvs_display_latest_from_album( $atts ) {
 
 
   $gallery_IDs = $album_data['galleryIDs'];
-  $posts_per_page = (int)$num_posts * count($gallery_IDs);
+  $posts_per_page = count($gallery_IDs) == 1 ? -1 : (int)$num_posts * count($gallery_IDs);
 
   $galleries = new WP_Query([
     'post_type' => 'attachment',
@@ -107,6 +107,10 @@ function elvs_display_latest_from_album( $atts ) {
       if (++$i == (int)$num_posts + 1) break;
       $_eg_has_gallery = get_post_meta(get_the_ID(), '_eg_has_gallery', true);
       $gallery_data = get_post_meta($_eg_has_gallery[0], '_eg_gallery_data', true);
+      if($gallery_data == false) {
+        $i = $i - 1;
+        continue;
+      }
       $data = $gallery_data['gallery'][get_the_ID()];
       $youtube_id = elvs_get_yt_id($data['link']);
       echo get_gallery_item_output($data, $youtube_id);
