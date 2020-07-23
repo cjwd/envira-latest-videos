@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Envira Latest Videos
  * Description: Pull the latest videos from an Envira Video album/gallery
- * Version: 1.1.0
+ * Version: 1.1.1
  * Author: Chinara James
  * Author URI: https://chinarajames.com
  * Text Domain: elvs
@@ -14,17 +14,17 @@
 if ( ! defined( 'WPINC' ) ) {
   die;
 }
-
+define( 'ELVS_PLUGIN_VERSION', '1.1.1' );
 define( 'ELVS_PLUGIN_DIR', plugin_dir_path( __FILE__ ));
 
 add_action('wp_enqueue_scripts', 'elvs_enqueue_styles');
 function elvs_enqueue_styles() {
-  wp_enqueue_style( 'elvs-style', plugin_dir_url( __FILE__ ) . 'style.css', [], '1.1.0', 'all' );
+  wp_enqueue_style( 'elvs-style', plugin_dir_url( __FILE__ ) . 'style.css', [], ELVS_PLUGIN_VERSION, 'all' );
 }
 
 add_action('wp_enqueue_scripts', 'elvs_enqueue_scripts');
 function elvs_enqueue_scripts() {
-  wp_enqueue_script( 'elvs-script', plugin_dir_url( __FILE__ ) . 'lightbox.js', [], '1.1.0', true );
+  wp_enqueue_script( 'elvs-script', plugin_dir_url( __FILE__ ) . 'lightbox.js', [], ELVS_PLUGIN_VERSION, true );
 }
 
 
