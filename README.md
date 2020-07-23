@@ -54,3 +54,17 @@ Whether to sort the gallery items ascending or descending. The items are sorted 
 - Album data variable now references the right meta key for getting album data. Removed \_eg_album_data variable.
 - Conditional statements testing for valid gallery or album ids now has the proper condition parameters
 - Elvs gallery shortcode now call the correct function
+
+## [1.1.1] 2020-07-22
+
+### Added
+
+- Constant for plugin version
+
+### Changed
+
+- Styles and Javascript now use the plugin version constant for the versioning
+
+### Fixed
+
+- The albums shortcode now skips deleted gallery items/attachment posts
